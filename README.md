@@ -12,11 +12,22 @@ O pacote [python-dotenv](https://pypi.org/project/python-dotenv/) serve para arm
 
 <br>
 
-O arquivo `.env` deve ter o seguitnte formato:
+O arquivo `.env` deve ter o seguinte formato:
 
 ```
 SECRET_KEY=3333
 DATABASE_PASSWORD=444
+```
+
+<br>
+
+Até o momento, a melhor forma que encontrei de carregar as variáveis de ambiente, sem torna-las definitivas nas variáveis do PC, é:
+
+```python
+from dotenv import dotenv_values
+
+config = dotenv_values(find_dotenv(usecwd=True))
+SECRET_KEY = config['SECRET_KEY']
 ```
 
 <br>
