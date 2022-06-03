@@ -24,7 +24,7 @@ DATABASE_PASSWORD=444
 Até o momento, a melhor forma que encontrei de carregar as variáveis de ambiente, sem torna-las definitivas nas variáveis do PC, é:
 
 ```python
-from dotenv import dotenv_values
+from dotenv import dotenv_values, find_dotenv
 
 config = dotenv_values(find_dotenv(usecwd=True))
 SECRET_KEY = config['SECRET_KEY']
